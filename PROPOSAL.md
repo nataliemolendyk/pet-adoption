@@ -6,6 +6,12 @@ This pet adoption website displays images, background information (breed, age, g
 
 This pet (maybe just dog) adoption website is for families, couples, or individuals looking to adopt a pet. This website is for someone that doesn't know which breed of dog (or pet) they want yet and wants to know more detail about the pets that are available for adoption. People who have never had a pet or wants to know more about these centers.
 
+## 3-5 Core features
+- Information cards with pet information (image, breed, age, health, gender, size)
+- FAQ/Tips pages with common questions and adoption process section
+- Contact page to contact adoption shelters
+- Provides locations of the shelters and information about the shelters
+
 ## What it deliberately does not do
 
 - This website will not process adoptions (it is used as an informational guide).
