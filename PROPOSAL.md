@@ -11,6 +11,7 @@ This pet (maybe just dog) adoption website is for families, couples, or individu
 - FAQ/Tips pages with common questions and adoption process section
 - Contact page to contact adoption shelters
 - Provides locations of the shelters and information about the shelters
+- Search and filter bar to find information easier
 
 ## What it deliberately does not do
 
