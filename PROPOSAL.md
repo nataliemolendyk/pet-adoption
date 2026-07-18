@@ -9,7 +9,7 @@ This pet (maybe just dog) adoption website is for families, couples, or individu
 ## 3-5 Core features
 - Information cards with pet information (image, breed, age, health, gender, size)
 - FAQ/Tips pages with common questions and adoption process section
-- Contact page to contact adoption shelters
+- Get In Touch page that provides shelters' contacts for users to reach out via phone/shelter website
 - Provides locations of the shelters and information about the shelters
 - Search and filter bar to find information easier
 
