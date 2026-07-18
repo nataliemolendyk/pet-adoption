@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse adoptable pets. Filter by breed, age, size, and more to find your perfect companion." />
+  <title>Browse Pets — Pet Adoption</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ===== Navigation Bar ===== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="index.html">Pet Adoption</a>
+      </div>
+      <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-links">
+        <a href="index.html">Home</a>
+        <a href="browse.html" class="active">Browse Pets</a>
+        <a href="adoption-process.html">Adoption Process</a>
+        <a href="faq.html">FAQ</a>
+        <a href="tips.html">Tips</a>
+        <a href="contact.html">Get in Touch</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Page Hero ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Browse Adoptable Pets</h1>
+      <p>Use the filters below to find your perfect companion. Every pet is waiting for a loving home.</p>
+    </div>
+  </section>
+
+  <!-- ===== Browse Content ===== -->
+  <section class="page-content" style="text-align: center;">
+    <div class="container">
+      <!-- Filter Bar -->
+      <div class="filter-sidebar" style="margin-bottom: var(--space-xl);">
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label for="filter-species">Species</label>
+            <select id="filter-species">
+              <option value="">All Species</option>
+              <option value="dog">Dogs</option>
+              <option value="cat">Cats</option>
+              <option value="rabbit">Rabbits</option>
+              <option value="bird">Birds</option>
+              <option value="small">Small Animals</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-age">Age</label>
+            <select id="filter-age">
+              <option value="">Any Age</option>
+              <option value="baby">Baby</option>
+              <option value="young">Young</option>
+              <option value="adult">Adult</option>
+              <option value="senior">Senior</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-gender">Gender</label>
+            <select id="filter-gender">
+              <option value="">Any</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-size">Size</label>
+            <select id="filter-size">
+              <option value="">Any Size</option>
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+            </select>
+          </div>
+          <div class="filter-actions">
+            <button class="btn btn-primary" id="filter-apply">Apply Filters</button>
+            <button class="btn btn-outline" id="filter-reset">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pet Grid -->
+      <div class="grid grid-3 pet-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+      <p>&copy; 2024 Pet Adoption. All rights reserved. | Data provided by <a href="https://rescuegroups.org" target="_blank" rel="noopener">RescueGroups.org</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
