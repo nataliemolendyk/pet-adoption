@@ -7,7 +7,7 @@
 ## 1. Overview
 
 ### 1.1 Product Name
-> **TBD** — to be decided (something related to pet shelters)
+**Pet Adoption** — an informational guide to help families, couples, and individuals discover adoptable pets, learn about the adoption process, and connect with local shelters.
 
 ### 1.2 Purpose
 A pet adoption information website that helps families, couples, and individuals discover adoptable pets, learn about the adoption process, and connect with local shelters.
@@ -33,11 +33,11 @@ A pet adoption information website that helps families, couples, and individuals
 | Component         | Technology      |
 | ----------------- | --------------- |
 | Frontend          | HTML, CSS, JS   |
-| Styling           | CSS (custom)    |
+| Styling           | CSS (custom with CSS variables) |
 | Data Source       | RescueGroups.org v5 API (free, REST/JSON) |
 | API Auth          | API Key (via Authorization header) |
 | Deployment        | Any static host (e.g., GitHub Pages, Netlify) |
-| Responsiveness    | Fully mobile-friendly |
+| Responsiveness    | Fully mobile-friendly with responsive breakpoints |
 
 ---
 
@@ -62,26 +62,25 @@ The API supports an `include=pictures` parameter that returns picture URLs along
 
 ## 5. Pages & Features
 
-### Page 1: 🏠 Home Page
-- Hero section with welcome message and tagline.
-- Featured adoptable pets (random or recent).
-- Quick navigation to key pages (Browse Pets, Adoption Process, FAQ, Tips).
-- Call-to-action buttons (e.g., "Find Your New Best Friend").
+### Page 1: Home Page (`index.html`)
+- Hero section with welcome message and tagline: "Find Your New Best Friend".
+- Featured adoptable pets section (placeholder cards currently, ready for API integration).
+- Quick navigation cards to key pages (Browse Pets, Learn the Process, Find a Shelter).
+- "Why Adopt?" section with 4 benefit cards (Save a Life, Cost-Effective, Unique Companions, Support Shelters).
+- Call-to-action buttons (e.g., "Find Your Perfect Pet").
 
-### Page 2: 🐾 Pet Listings (Browse Pets)
-- Grid display of adoptable pets with thumbnail images.
-- **Filters sidebar:**
-  - Species (dog, cat, etc.)
-  - Breed name
-  - Age (baby, young, adult, senior)
-  - Gender (male, female)
-  - Size (small, medium, large, extra large)
-  - Health status
-- Search bar for keyword search.
-- Pagination or infinite scroll.
-- Click on a pet to view details.
+### Page 2: Pet Listings — Browse Pets (`browse.html`)
+- Grid display of adoptable pets with thumbnail images (placeholder awaiting API key).
+- **Horizontal filter bar:**
+  - Species (All Species, Dogs, Cats, Rabbits, Birds, Small Animals)
+  - Age (Any Age, Baby, Young, Adult, Senior)
+  - Gender (Any, Male, Female)
+  - Size (Any Size, Small, Medium, Large)
+- Apply Filters and Reset buttons.
+- Pet grid container ready for API-driven content.
 
-### Page 3: 📄 Individual Pet Detail Page
+### Page 3: Individual Pet Detail Page (`pet-detail.html` — referenced in JS, page file to be created)
+- Planned for Phase 3.
 - Large hero image of the pet.
 - Pet information: name, breed, age, gender, size, color.
 - Description/personality notes.
@@ -90,70 +89,88 @@ The API supports an `include=pictures` parameter that returns picture URLs along
 - Shelter info and location for this pet.
 - "Contact Shelter" button / link.
 
-### Page 4: 📍 Shelter / Location Info
-- List of shelters and rescue organizations.
+### Page 4: Shelter / Location Info (`shelters.html`)
+- List of 4 partner shelters and rescue organizations.
 - Each shelter card shows:
   - Name
-  - Address / location
-  - Phone number
-  - Website link
   - Brief description
-- Map integration (optional enhancement).
-- Click through to see pets available at that shelter.
+  - "Contact Shelter" button (links to Get in Touch page)
+  - "View Their Pets" button (links to Browse Pets page)
+- Shelter names: Local Animal Shelter, Paws & Claws Rescue, Happy Tails Sanctuary, Second Chance Rescue.
 
-### Page 5: ❤️ Adoption Process
-- Step-by-step guide to adopting a pet (e.g., 1. Research, 2. Visit Shelter, 3. Application, 4. Home Visit, 5. Adoption).
+### Page 5: Adoption Process (`adoption-process.html`)
+- Step-by-step guide to adopting a pet — 7 steps:
+  1. Browse Available Pets
+  2. Learn About the Pet
+  3. Contact the Shelter
+  4. Meet the Pet
+  5. Complete the Application
+  6. Pay the Adoption Fee
+  7. Bring Your Pet Home
 - Helpful tips for each step.
-- Resources and links to shelters.
 
-### Page 6: ❓ FAQ Page
-- Accordion-style or collapsible questions/answers.
-- Common questions:
+### Page 6: FAQ Page (`faq.html`)
+- Accordion-style collapsible questions/answers.
+- 8 common questions:
   - "What do I need to adopt a pet?"
   - "How much does adoption cost?"
   - "Can I adopt if I rent my home?"
   - "What if I have other pets?"
   - "How do I know which pet is right for me?"
-- Search within FAQs (optional enhancement).
+  - "Are adopted pets healthy?"
+  - "What if the adoption doesn't work out?"
+  - "How long does the adoption process take?"
+- Single-open accordion behavior (closing others when one is opened).
 
-### Page 7: 💡 Tips Page
-- Articles/sections on pet care topics:
-  - Preparing your home for a new pet.
-  - First week with your new pet.
-  - Pet nutrition basics.
-  - Training tips.
-  - Vet care and vaccinations.
-- Categorized for easy browsing.
+### Page 7: Tips Page (`tips.html`)
+- 5 articles/sections on pet care topics:
+  - **Preparing Your Home for a New Pet** — pet-proofing, safe zone, essentials, food, vet visit
+  - **Your First Week with a New Pet** — go slow, establish routine, start training, monitor eating, be patient
+  - **Pet Nutrition Basics** — quality food, age-appropriate diet, portion control, fresh water, toxic foods
+  - **Training Tips** — positive reinforcement, short sessions, consistency, socialization, professional help
+  - **Vet Care & Vaccinations** — annual checkups, core vaccinations, parasite prevention, dental care, spay/neuter
 
-### Page 8: 📬 Contact Page
-- Contact form (name, email, message).
-- General inquiries about adoption.
-- Links to individual shelter contact info.
-- Optional: embedded map or address of partner shelters.
+### Page 8: Get in Touch — Contact Page (`contact.html`)
+- Contact cards for 3 partner shelters with full details:
+  - Local Animal Shelter — address, phone, email, website, hours
+  - Paws & Claws Rescue — address, phone, email, website, hours
+  - Happy Tails Sanctuary — address, phone, email, website, hours
+- Each card includes "View Their Pets" and "Shelter Locations" buttons.
+- Shelter descriptions for each organization.
 
 ---
 
 ## 6. Design & UI
 
 ### 6.1 Color Palette (Nature-Inspired)
-| Color         | Hex Code  | Usage                  |
-| ------------- | --------- | ---------------------- |
-| Forest Green  | `#2D6A4F` | Headers, buttons, accents |
-| Warm Brown    | `#8B5A2B` | Secondary elements     |
-| Earthy Beige  | `#F5F0E6` | Background             |
-| Soft Cream    | `#FFFDF7` | Card backgrounds       |
-| Deep Charcoal | `#1B1B1B` | Text                   |
-| Accent Gold   | `#D4A373` | Highlights, icons      |
+| Color               | Hex Code  | Usage                  |
+| ------------------- | --------- | ---------------------- |
+| Forest Green        | `#2D6A4F` | Headers, buttons, accents |
+| Forest Green Light  | `#40916C` | Hover states           |
+| Forest Green Dark   | `#1B4332` | Footer, hero background |
+| Warm Brown          | `#8B5A2B` | Secondary elements     |
+| Warm Brown Light    | `#A67C52` | Hover states           |
+| Earthy Beige        | `#F5F0E6` | Background             |
+| Soft Cream          | `#FFFDF7` | Card backgrounds       |
+| Deep Charcoal       | `#1B1B1B` | Text                   |
+| Accent Gold         | `#D4A373` | Highlights, icons      |
+| Accent Gold Light   | `#E9C88A` | Hover states           |
+| Light Gray          | `#E8E4D9` | Borders                |
+| Medium Gray         | `#9C9A8E` | Secondary text         |
+| Error Red           | `#D32F2F` | Error messages         |
 
 ### 6.2 Typography
-- **Headings:** Serif font (warm, friendly feel).
-- **Body:** Sans-serif font (clean, readable).
+- **Headings:** Georgia / Times New Roman (serif, warm, friendly feel).
+- **Body:** System sans-serif stack (clean, readable).
 - Text sizes responsive across devices.
 
 ### 6.3 Responsiveness
 - Mobile-first design approach.
-- Breakpoints for: mobile (< 768px), tablet (768px–1024px), desktop (> 1024px).
+- Breakpoints: mobile (< 768px), tablet (768px–1024px), desktop (> 1024px).
 - Touch-friendly buttons and filters on mobile.
+- Filter bar collapses to vertical layout on mobile.
+- Navigation collapses to hamburger menu on mobile.
+- Grid systems adapt: 3-column → 1-column on mobile.
 
 ---
 
@@ -174,30 +191,28 @@ The API supports an `include=pictures` parameter that returns picture URLs along
 
 ## 8. Build Priority & Milestones
 
-### Phase 1 — Foundation (Start Here) ✅
-- [ ] Set up project structure (multi-page HTML files, CSS, JS).
-- [ ] Get RescueGroups.org API key.
-- [ ] Style framework (CSS variables, nature theme, responsive grid).
-- [ ] Navigation bar and footer (shared across pages).
+### Phase 1 — Foundation ✅
+- [x] Set up project structure (multi-page HTML files, CSS, JS).
+- [x] Get RescueGroups.org API key (placeholder key in config).
+- [x] Style framework (CSS variables, nature theme, responsive grid).
+- [x] Navigation bar and footer (shared across pages, responsive hamburger menu).
 
-### Phase 2 — Pet Data & Listings
+### Phase 2 — Information Pages ✅
+- [x] Build **Home Page** with hero, featured pets, quick links, and "Why Adopt?" section.
+- [x] Build **Adoption Process** page with 7-step guide.
+- [x] Build **FAQ** page with accordion-style 8 questions.
+- [x] Build **Tips** page with 5 pet care articles.
+- [x] Build **Shelters / Locations** page with 4 partner shelters.
+- [x] Build **Get in Touch** page with 3 shelter contact cards.
+
+### Phase 3 — Pet Data & Listings 🔄
 - [ ] Connect to RescueGroups API and fetch animal data.
 - [ ] Build **Pet Listings** page with grid and thumbnail images.
-- [ ] Build **Individual Pet Detail** page.
+- [ ] Build **Individual Pet Detail** page (`pet-detail.html`).
 - [ ] Implement filters (species, breed, age, gender, size).
+- [ ] Add API key to `js/main.js` to enable live data.
 
-### Phase 3 — Information Pages
-- [ ] Build **Home Page** with featured pets.
-- [ ] Build **Adoption Process** page.
-- [ ] Build **FAQ** page.
-- [ ] Build **Tips** page.
-
-### Phase 4 — Shelters & Contact
-- [ ] Build **Shelters / Locations** page.
-- [ ] Build **Contact** page.
-- [ ] Connect shelter data from API.
-
-### Phase 5 — Polish & Deploy
+### Phase 4 — Polish & Deploy
 - [ ] Responsive testing (mobile, tablet, desktop).
 - [ ] Performance optimization (image loading, caching).
 - [ ] Deploy to hosting (GitHub Pages, Netlify, etc.).
@@ -206,12 +221,10 @@ The API supports an `include=pictures` parameter that returns picture URLs along
 
 ## 9. What We Deliberately Do NOT Do
 
-- ❌ Process adoptions directly on the site (informational only).
-- ❌ Handle payments or donations.
-- ❌ Create user profiles or store sensitive information.
-- ❌ Live chat feature between shelters and users.
-
----
+- Process adoptions directly on the site (informational only).
+- Handle payments or donations.
+- Create user profiles or store sensitive information.
+- Live chat feature between shelters and users.
 
 ## 10. Future Enhancements (Post-MVP)
 
@@ -219,8 +232,10 @@ The API supports an `include=pictures` parameter that returns picture URLs along
 - Search by zip code / distance radius.
 - "Favorites" or "Saved Pets" using localStorage.
 - Dark mode toggle.
-- More pet types (cats, rabbits, birds, etc.) via API filter.
+- More pet types via API filter.
 - Success stories section (user-submitted adoption stories).
+- Pet detail page (`pet-detail.html`).
+- Full API integration with live pet data.
 
 ---
 
