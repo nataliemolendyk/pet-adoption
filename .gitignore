@@ -1,1 +1,17 @@
+# Environment
 .env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Dependencies (if using npm/yarn)
+node_modules/
