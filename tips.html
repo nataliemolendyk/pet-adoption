@@ -4,10 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Pet care tips for new and prospective pet owners. Learn about preparing your home, first week tips, nutrition, training, and vet care." />
-  <title>Tips â€” Pet Adoption</title>
+  <meta property="og:title" content="Tips — Pet Adoption" />
+  <meta property="og:description" content="Helpful pet care tips for new and prospective owners. Learn about preparing your home, nutrition, training, and vet care." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR_VERCEL_DOMAIN.vercel.app/tips.html" />
+  <meta property="og:image" content="https://picsum.photos/seed/pet-adoption-og/1200/630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://api.rescuegroups.org" />
+  <link rel="preconnect" href="https://picsum.photos" />
+  <title>Tips — Pet Adoption</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- ===== Skip Link (for keyboard users) ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ===== Navigation Bar ===== -->
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
@@ -39,87 +50,108 @@
   </section>
 
   <!-- ===== Tips Content ===== -->
-  <section class="page-content">
+  <section class="page-content" id="main-content">
     <div class="container">
+      <div class="section-title">
+        <h2>Pet Care Tips</h2>
+        <p>Expert advice compiled from the ASPCA, AVMA, and Humane Society.</p>
+      </div>
       <div class="grid" style="grid-template-columns: 1fr; gap: var(--space-2xl); max-width: 900px; margin: 0 auto;">
 
         <!-- Tip 1: Preparing Your Home -->
         <div class="card" style="padding: var(--space-xl);">
           <h2>Preparing Your Home for a New Pet</h2>
-          <p>Before bringing your new pet home, take time to prepare your space:</p>
+          <p>Before bringing your new pet home, the ASPCA recommends taking time to prepare your space:<sup><a href="#tips-source-1">[1]</a></sup></p>
           <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: var(--space-md);">
-            <li><strong>Pet-proof your home:</strong> Secure loose wires, remove toxic plants, and store chemicals out of reach.</li>
-            <li><strong>Create a safe zone:</strong> Set up a quiet area with a bed, water bowl, and toys where your pet can retreat.</li>
-            <li><strong>Stock up on essentials:</strong> Food and water bowls, collar and leash, ID tags, bed, crate (if using), toys, and grooming supplies.</li>
-            <li><strong>Choose the right food:</strong> Ask the shelter what food your pet has been eating and stick with it initially to avoid stomach upset.</li>
+            <li><strong>Pet-proof your home:</strong> Secure loose wires, remove toxic plants (<a href="https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants" target="_blank" rel="noopener">check the ASPCA's toxic plant list</a>), and store chemicals out of reach.</li>
+            <li><strong>Create a safe zone:</strong> Set up a quiet area with a bed, water bowl, and toys where your pet can retreat. Consider using gates to limit access to specific areas.</li>
+            <li><strong>Stock up on essentials:</strong> Food and water bowls, collar and leash, ID tags, bed, crate (if using), toys, and grooming supplies. For cats, include a litter box, litter, and scratching posts.</li>
+            <li><strong>Choose the right food:</strong> Ask the shelter what food your pet has been eating and stick with it initially to avoid stomach upset. Look for AAFCO-approved pet foods.</li>
             <li><strong>Schedule a vet visit:</strong> Book a checkup within the first week to establish care and discuss vaccinations.</li>
           </ul>
+          <p>Source: <a href="https://www.aspca.org/adopt-pet/adoption-tips" target="_blank" rel="noopener">ASPCA &mdash; Adoption Tips</a></p>
         </div>
 
         <!-- Tip 2: First Week -->
         <div class="card" style="padding: var(--space-xl);">
           <h2>Your First Week with a New Pet</h2>
-          <p>The first week is about building trust and establishing routines:</p>
+          <p>The first week is about building trust and establishing routines. The ASPCA's <strong>3-3-3 Guideline</strong> explains what to expect:<sup><a href="#tips-source-1">[1]</a></sup></p>
           <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: var(--space-md);">
-            <li><strong>Go slow:</strong> Give your pet space to explore at their own pace. Don't overwhelm them with too many visitors.</li>
-            <li><strong>Establish a routine:</strong> Consistent feeding times, walk schedules, and bedtime help pets feel secure.</li>
-            <li><strong>Start training gently:</strong> Begin with basic commands like "sit" and "stay" using positive reinforcement.</li>
+            <li><strong>Go slow:</strong> Give your pet space to explore at their own pace. Don't overwhelm them with too many visitors. Your pet might feel nervous and overwhelmed encountering new sounds, smells, and people.</li>
+            <li><strong>Establish a routine:</strong> Consistent feeding times, walk schedules, and bedtime help pets feel secure. Get into a routine as soon as possible.</li>
+            <li><strong>Start training gently:</strong> Begin with basic commands like "sit" and "stay" using positive reinforcement. Stay calm and give clear direction.</li>
             <li><strong>Monitor eating and drinking:</strong> Some pets may be nervous eaters at first. Contact your vet if they refuse food for more than 24 hours.</li>
-            <li><strong>Be patient:</strong> It can take 3-4 weeks for a pet to fully adjust. Expect some accidents or anxious behavior â€” this is normal.</li>
+            <li><strong>Be patient:</strong> It can take about 3 weeks for a pet to start settling in and 3 months to fully adjust. Expect some accidents or anxious behavior &mdash; this is normal.</li>
           </ul>
+          <p>Source: <a href="https://www.aspca.org/adopt-pet/adoption-tips" target="_blank" rel="noopener">ASPCA &mdash; Adoption Tips (3-3-3 Guideline)</a></p>
         </div>
 
         <!-- Tip 3: Nutrition -->
         <div class="card" style="padding: var(--space-xl);">
           <h2>Pet Nutrition Basics</h2>
-          <p>Proper nutrition is key to your pet's health and longevity:</p>
+          <p>Proper nutrition is key to your pet's health and longevity. The ASPCA offers these guidelines:<sup><a href="#tips-source-1">[1]</a></sup></p>
           <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: var(--space-md);">
-            <li><strong>Quality food matters:</strong> Look for AAFCO-approved pet foods with real meat as the first ingredient.</li>
-            <li><strong>Age-appropriate diet:</strong> Puppies/kittens, adults, and seniors have different nutritional needs.</li>
-            <li><strong>Portion control:</strong> Follow feeding guidelines and avoid free-feeding to prevent obesity.</li>
-            <li><strong>Fresh water always:</strong> Ensure clean, fresh water is available at all times.</li>
-            <li><strong>Avoid toxic foods:</strong> Never feed pets chocolate, grapes, raisins, onions, garlic, or xylitol (artificial sweetener).</li>
+            <li><strong>Quality food matters:</strong> Look for AAFCO-approved pet foods formulated for your pet's life stage. The ASPCA notes that a good quality commercial pet food is often more cost-effective than a homemade diet.</li>
+            <li><strong>Age-appropriate diet:</strong> Puppies/kittens, adults, and seniors have different nutritional needs. Choose food formulated for your pet's specific life stage.</li>
+            <li><strong>Portion control:</strong> Follow feeding guidelines on the package and avoid free-feeding to prevent obesity. According to the AVMA, maintaining a healthy weight is one of the most important things you can do for your pet's overall health.<sup><a href="#tips-source-3">[3]</a></sup></li>
+            <li><strong>Fresh water always:</strong> Ensure clean, fresh water is available at all times. Change it daily.</li>
+            <li><strong>Avoid toxic foods:</strong> Never feed pets chocolate, grapes, raisins, onions, garlic, or xylitol (artificial sweetener). The ASPCA Animal Poison Control Center provides a complete list of toxic foods.<sup><a href="#tips-source-4">[4]</a></sup></li>
           </ul>
+          <p>Sources: <a href="https://www.aspca.org/pet-care/general-pet-care/cutting-pet-care-costs" target="_blank" rel="noopener">ASPCA &mdash; Cutting Pet Care Costs</a> | <a href="https://www.avma.org/resources-tools/pet-owners/petcare" target="_blank" rel="noopener">AVMA &mdash; Pet Care</a> | <a href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">ASPCA Poison Control</a></p>
         </div>
 
         <!-- Tip 4: Training -->
         <div class="card" style="padding: var(--space-xl);">
           <h2>Training Tips</h2>
-          <p>Training strengthens your bond and ensures good behavior:</p>
+          <p>Training strengthens your bond and ensures good behavior. The ASPCA provides these professional recommendations:<sup><a href="#tips-source-5">[5]</a></sup></p>
           <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: var(--space-md);">
-            <li><strong>Use positive reinforcement:</strong> Reward good behavior with treats, praise, and play. Never use punishment.</li>
-            <li><strong>Keep sessions short:</strong> 5-10 minute training sessions are more effective than long ones.</li>
-            <li><strong>Be consistent:</strong> Use the same commands and rules from every family member.</li>
-            <li><strong>Socialize early:</strong> Expose your pet to different people, animals, and environments in a controlled, positive way.</li>
-            <li><strong>Consider professional help:</strong> Group classes or private trainers can help with specific behavioral issues.</li>
+            <li><strong>Use positive reinforcement:</strong> Reward good behavior with treats, praise, and play. Never use punishment &mdash; it can increase fear and anxiety.</li>
+            <li><strong>Keep sessions short:</strong> 5-10 minute training sessions are more effective than long ones. Short, frequent sessions help maintain your pet's attention.</li>
+            <li><strong>Be consistent:</strong> Use the same commands and rules from every family member. Consistency helps your pet understand what's expected.</li>
+            <li><strong>Socialize early:</strong> Expose your pet to different people, animals, and environments in a controlled, positive way. The ASPCA recommends group classes for young puppies who need socialization.</li>
+            <li><strong>Consider professional help:</strong> For serious behavior problems, the ASPCA recommends seeking a Certified Applied Animal Behaviorist (CAAB) or a veterinary behaviorist (Dip ACVB). For basic training, a Certified Professional Dog Trainer (CPDT) is a great option.</li>
           </ul>
+          <p>Source: <a href="https://www.aspca.org/pet-care/general-pet-care/behavioral-help-your-pet" target="_blank" rel="noopener">ASPCA &mdash; Behavioral Help for Your Pet</a></p>
         </div>
 
         <!-- Tip 5: Vet Care -->
         <div class="card" style="padding: var(--space-xl);">
           <h2>Vet Care &amp; Vaccinations</h2>
-          <p>Regular veterinary care keeps your pet healthy:</p>
+          <p>Regular veterinary care keeps your pet healthy. Recommendations from the ASPCA and AVMA:<sup><a href="#tips-source-3">[3]</a></sup><sup><a href="#tips-source-6">[6]</a></sup></p>
           <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: var(--space-md);">
-            <li><strong>Annual checkups:</strong> Even healthy pets need yearly exams to catch issues early.</li>
-            <li><strong>Core vaccinations:</strong> Dogs need rabies, distemper, parvovirus, and adenovirus. Cats need rabies, feline distemper, and feline herpesvirus.</li>
-            <li><strong>Parasite prevention:</strong> Year-round flea, tick, and heartworm prevention is essential.</li>
-            <li><strong>Dental care:</strong> Brush your pet's teeth regularly and schedule professional cleanings as recommended.</li>
-            <li><strong>Spay/neuter:</strong> This prevents health issues and unwanted litters. Most adopted pets are already altered.</li>
+            <li><strong>Annual checkups:</strong> Even healthy pets need yearly exams. The ASPCA warns that skipping regular check-ups can lead to more expensive and risky treatments down the road.</li>
+            <li><strong>Core vaccinations:</strong> Dogs need rabies, distemper, parvovirus, and adenovirus (hepatitis). Cats need rabies, feline panleukopenia (distemper), feline calicivirus, and feline herpesvirus type I. Non-core vaccines are given based on lifestyle and exposure risk.<sup><a href="#tips-source-6">[6]</a></sup></li>
+            <li><strong>Parasite prevention:</strong> Year-round flea, tick, and heartworm prevention is essential. The ASPCA notes that flea and tick infestations can cause costly medical problems from minor skin irritations to life-threatening blood loss.</li>
+            <li><strong>Dental care:</strong> Brush your pet's teeth regularly and schedule professional cleanings as recommended. Dental disease can lead to heart and kidney problems if left untreated.</li>
+            <li><strong>Spay/neuter:</strong> This prevents serious health problems including uterine, ovarian, and testicular cancers. Many local shelters provide resources for low- or no-cost spay/neuter surgeries.<sup><a href="#tips-source-1">[1]</a></sup></li>
           </ul>
+          <p>Sources: <a href="https://www.avma.org/resources-tools/pet-owners/petcare" target="_blank" rel="noopener">AVMA &mdash; Pet Care Resources</a> | <a href="https://www.aspca.org/pet-care/general-pet-care/vaccinations-your-pet" target="_blank" rel="noopener">ASPCA &mdash; Vaccinations</a> | <a href="https://www.aspca.org/pet-care/general-pet-care/cutting-pet-care-costs" target="_blank" rel="noopener">ASPCA &mdash; Cutting Pet Care Costs</a></p>
         </div>
 
       </div>
 
+      <!-- Sources Section -->
+      <div class="section-title" style="margin-top: var(--space-3xl);">
+        <h2>Sources</h2>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto; font-size: 0.85rem; color: var(--medium-gray);">
+        <p id="tips-source-1"><sup>[1]</sup> ASPCA. "Adopting a Pet." <a href="https://www.aspca.org/adopt-pet/adoption-tips" target="_blank" rel="noopener">https://www.aspca.org/adopt-pet/adoption-tips</a></p>
+        <p id="tips-source-2"><sup>[2]</sup> Humane World for Animals. "Adopting an Animal from a Shelter or Rescue Group." <a href="https://www.humaneworld.org/en/resources/adopting-animal-shelter-or-rescue-group" target="_blank" rel="noopener">https://www.humaneworld.org/en/resources/adopting-animal-shelter-or-rescue-group</a></p>
+        <p id="tips-source-3"><sup>[3]</sup> American Veterinary Medical Association (AVMA). "Pet Care Resources." <a href="https://www.avma.org/resources-tools/pet-owners/petcare" target="_blank" rel="noopener">https://www.avma.org/resources-tools/pet-owners/petcare</a></p>
+        <p id="tips-source-4"><sup>[4]</sup> ASPCA. "Animal Poison Control." <a href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">https://www.aspca.org/pet-care/animal-poison-control</a></p>
+        <p id="tips-source-5"><sup>[5]</sup> ASPCA. "Behavioral Help for Your Pet." <a href="https://www.aspca.org/pet-care/general-pet-care/behavioral-help-your-pet" target="_blank" rel="noopener">https://www.aspca.org/pet-care/general-pet-care/behavioral-help-your-pet</a></p>
+        <p id="tips-source-6"><sup>[6]</sup> ASPCA. "Vaccinations for Your Pet." <a href="https://www.aspca.org/pet-care/general-pet-care/vaccinations-your-pet" target="_blank" rel="noopener">https://www.aspca.org/pet-care/general-pet-care/vaccinations-your-pet</a></p>
+      </div>
     </div>
   </section>
 
   <!-- ===== Footer ===== -->
-  <footer class="footer">
-      <p>&copy; 2024 Pet Adoption. All rights reserved. | Data provided by <a href="https://rescuegroups.org" target="_blank" rel="noopener">RescueGroups.org</a></p>
-    </div>
-  </footer>
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 Pet Adoption. All rights reserved. | Data provided by <a href="https://rescuegroups.org" target="_blank" rel="noopener">RescueGroups.org</a></p>
+      </div>
+    </footer>
 
   <script src="js/main.js"></script>
 </body>
 </html>
-

@@ -2,12 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Find your new best friend. Browse adoptable pets, learn about the adoption process, and connect with local shelters." />
-  <title>Home — Pet Adoption</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Find your new best friend. Browse adoptable pets, learn about the adoption process, and connect with local shelters." />
+    <meta property="og:title" content="Pet Adoption — Find Your New Best Friend" />
+    <meta property="og:description" content="Browse adoptable pets, learn about the adoption process, and connect with local shelters near you." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://YOUR_VERCEL_DOMAIN.vercel.app/" />
+    <meta property="og:image" content="https://picsum.photos/seed/pet-adoption-og/1200/630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://api.rescuegroups.org" />
+    <link rel="preconnect" href="https://picsum.photos" />
+    <title>Home — Pet Adoption</title>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- ===== Skip Link (for keyboard users) ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ===== Navigation Bar ===== -->
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
@@ -31,7 +42,7 @@
   </nav>
 
   <!-- ===== Hero Section ===== -->
-  <section class="page-hero">
+    <section class="page-hero" id="main-content">
     <div class="container">
       <h1>Find Your New Best Friend</h1>
       <p>Every pet deserves a loving home. Browse adoptable pets, learn about the adoption process, and connect with shelters near you.</p>
@@ -141,10 +152,11 @@
   </section>
 
   <!-- ===== Footer ===== -->
-  <footer class="footer">
-      <p>&copy; 2024 Pet Adoption. All rights reserved. | Data provided by <a href="https://rescuegroups.org" target="_blank" rel="noopener">RescueGroups.org</a></p>
-    </div>
-  </footer>
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 Pet Adoption. All rights reserved. | Data provided by <a href="https://rescuegroups.org" target="_blank" rel="noopener">RescueGroups.org</a></p>
+      </div>
+    </footer>
 
   <script src="js/main.js"></script>
 </body>

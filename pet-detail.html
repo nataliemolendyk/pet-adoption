@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="View detailed information about an adoptable pet including photos, description, and shelter contact information." />
+  <meta property="og:title" content="Pet Details — Pet Adoption" />
+  <meta property="og:description" content="Learn more about this adoptable pet and how to bring them home." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR_VERCEL_DOMAIN.vercel.app/pet-detail.html" />
+  <meta property="og:image" content="https://picsum.photos/seed/pet-adoption-og/1200/630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://api.rescuegroups.org" />
+  <link rel="preconnect" href="https://picsum.photos" />
+  <title>Pet Details — Pet Adoption</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ===== Skip Link (for keyboard users) ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== Navigation Bar ===== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="index.html">Pet Adoption</a>
+      </div>
+      <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-links">
+        <a href="index.html">Home</a>
+        <a href="browse.html">Browse Pets</a>
+        <a href="adoption-process.html">Adoption Process</a>
+        <a href="faq.html">FAQ</a>
+        <a href="tips.html">Tips</a>
+        <a href="contact.html">Get in Touch</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Page Hero ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Pet Details</h1>
+      <p>Learn more about your potential new best friend.</p>
+    </div>
+  </section>
+
+  <!-- ===== Pet Detail Content ===== -->
+  <section class="page-content" id="main-content">
+    <div class="container">
+      <a href="browse.html" class="back-link">← Back to Browse</a>
+      <div id="pet-detail-container"></div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Pet Adoption. All rights reserved. | Data provided by <a href="https://rescuegroups.org" target="_blank" rel="noopener">RescueGroups.org</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

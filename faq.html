@@ -4,10 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Frequently asked questions about pet adoption. Learn about costs, requirements, finding the right pet, and more." />
+  <meta property="og:title" content="FAQ — Pet Adoption" />
+  <meta property="og:description" content="Answers to common questions about pet adoption — costs, requirements, finding the right pet, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR_VERCEL_DOMAIN.vercel.app/faq.html" />
+  <meta property="og:image" content="https://picsum.photos/seed/pet-adoption-og/1200/630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://api.rescuegroups.org" />
+  <link rel="preconnect" href="https://picsum.photos" />
   <title>FAQ — Pet Adoption</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- ===== Skip Link (for keyboard users) ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="navbar-brand">
@@ -34,8 +45,12 @@
     </div>
   </section>
 
-  <section class="page-content">
+  <section class="page-content" id="main-content">
     <div class="container">
+      <div class="section-title">
+        <h2>Common Questions</h2>
+        <p>Answers based on information from the ASPCA, AVMA, and Humane Society.</p>
+      </div>
       <div class="accordion" style="max-width: 800px; margin: 0 auto;">
         <div class="accordion-item">
           <button class="accordion-header" aria-expanded="false">
@@ -43,7 +58,7 @@
             <span class="icon">+</span>
           </button>
           <div class="accordion-content">
-            <p>Requirements vary by shelter, but most require you to be at least 18 years old, have a valid ID showing your current address, provide proof of homeownership or landlord permission, and demonstrate that you can provide a safe, loving home.</p>
+            <p>Requirements vary by shelter, but most require you to be at least 18 years old, have a valid ID showing your current address, provide proof of homeownership or landlord permission, and demonstrate that you can provide a safe, loving home. The ASPCA notes that shelters and rescues collectively care for millions of animals each year and want to find the best possible match for each family.<sup><a href="#faq-source-1">[1]</a></sup></p>
           </div>
         </div>
         <div class="accordion-item">
@@ -52,7 +67,7 @@
             <span class="icon">+</span>
           </button>
           <div class="accordion-content">
-            <p>Adoption fees typically range from \ to \, depending on the shelter and the pet. This usually covers spaying/neutering, vaccinations, microchipping, and an initial vet checkup.</p>
+            <p>Adoption fees vary by organization but typically range from <strong>$50 to $350</strong> for dogs and <strong>$25 to $200</strong> for cats. This usually covers spaying/neutering, core vaccinations, microchipping, and an initial vet checkup. According to the ASPCA, these fees help shelters continue their life-saving work and are significantly less than the cost of purchasing from a breeder while also covering services that would cost much more if done separately.<sup><a href="#faq-source-1">[1]</a></sup></p>
           </div>
         </div>
         <div class="accordion-item">
@@ -61,7 +76,7 @@
             <span class="icon">+</span>
           </button>
           <div class="accordion-content">
-            <p>Yes! You'll just need to provide proof that your landlord allows pets. Some shelters may also check for breed or size restrictions in your rental agreement.</p>
+            <p>Yes! You'll just need to provide proof that your landlord allows pets. The Humane Society notes that some shelters may also check for breed or size restrictions in your rental agreement. Many organizations are also working to address pet-related housing issues and may help negotiate with landlords on your behalf.<sup><a href="#faq-source-2">[2]</a></sup></p>
           </div>
         </div>
         <div class="accordion-item">
@@ -70,7 +85,7 @@
             <span class="icon">+</span>
           </button>
           <div class="accordion-content">
-            <p>Having other pets is usually fine. Many shelters encourage meet-and-greet sessions to ensure compatibility with your current pets.</p>
+            <p>Having other pets is usually fine. Many shelters encourage meet-and-greet sessions to ensure compatibility with your current pets. The ASPCA recommends introducing new pets slowly and provides resources on how to facilitate a smooth transition between resident and new pets.<sup><a href="#faq-source-1">[1]</a></sup></p>
           </div>
         </div>
         <div class="accordion-item">
@@ -79,7 +94,7 @@
             <span class="icon">+</span>
           </button>
           <div class="accordion-content">
-            <p>Consider your lifestyle, living space, and activity level. Shelter staff know their animals well and can help match you with a pet that fits your situation.</p>
+            <p>Consider your lifestyle, living space, and activity level. The Humane Society recommends asking yourself questions like: "What kind of pet will be the best fit for your household? Do you have enough time to devote to the daily needs of a dog? Is there someone in your household who is allergic?" Shelter staff know their animals well and can help match you with a pet that fits your situation.<sup><a href="#faq-source-2">[2]</a></sup></p>
           </div>
         </div>
         <div class="accordion-item">
@@ -88,7 +103,7 @@
             <span class="icon">+</span>
           </button>
           <div class="accordion-content">
-            <p>Yes! Most shelter pets receive veterinary care, vaccinations, and treatment before being made available for adoption. You'll receive all medical records.</p>
+            <p>Yes! Most shelter pets receive veterinary care, vaccinations, and treatment before being made available for adoption. The ASPCA states that shelters provide veterinary care including spaying/neutering, core vaccinations, and treatment for any known medical conditions. You'll receive all medical records. However, some animals may have pre-existing conditions that the shelter will disclose upfront.<sup><a href="#faq-source-1">[1]</a></sup></p>
           </div>
         </div>
         <div class="accordion-item">
@@ -97,7 +112,7 @@
             <span class="icon">+</span>
           </button>
           <div class="accordion-content">
-            <p>Most shelters have a return policy and will take the pet back. Many also offer post-adoption support to help you through the transition.</p>
+            <p>Most shelters have a return policy and will take the pet back. Many also offer post-adoption support and free behavior counseling to help you through the transition. The ASPCA recommends reaching out to the shelter's behavior support resources before considering returning a pet — many common issues can be resolved with professional guidance.<sup><a href="#faq-source-1">[1]</a></sup></p>
           </div>
         </div>
         <div class="accordion-item">
@@ -106,14 +121,25 @@
             <span class="icon">+</span>
           </button>
           <div class="accordion-content">
-            <p>Some adoptions can be completed the same day, while others may take a few days to a week, especially if a home visit is required.</p>
+            <p>Some adoptions can be completed the same day, while others may take a few days to a week, especially if a home visit is required. The ASPCA notes that each organization has its own unique adoption process, fees, and parameters — some offer same-day adoptions, while others take longer to ensure the best match.<sup><a href="#faq-source-1">[1]</a></sup></p>
           </div>
         </div>
+      </div>
+
+      <!-- Sources Section -->
+      <div class="section-title" style="margin-top: var(--space-3xl);">
+        <h2>Sources</h2>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto; font-size: 0.85rem; color: var(--medium-gray);">
+        <p id="faq-source-1"><sup>[1]</sup> ASPCA. "Adopting a Pet." <a href="https://www.aspca.org/adopt-pet/adoption-tips" target="_blank" rel="noopener">https://www.aspca.org/adopt-pet/adoption-tips</a></p>
+        <p id="faq-source-2"><sup>[2]</sup> Humane World for Animals. "Adopting an Animal from a Shelter or Rescue Group." <a href="https://www.humaneworld.org/en/resources/adopting-animal-shelter-or-rescue-group" target="_blank" rel="noopener">https://www.humaneworld.org/en/resources/adopting-animal-shelter-or-rescue-group</a></p>
+        <p id="faq-source-3"><sup>[3]</sup> American Veterinary Medical Association (AVMA). "Pet Care Resources." <a href="https://www.avma.org/resources-tools/pet-owners/petcare" target="_blank" rel="noopener">https://www.avma.org/resources-tools/pet-owners/petcare</a></p>
       </div>
     </div>
   </section>
 
   <footer class="footer">
+    <div class="container">
       <p>&copy; 2024 Pet Adoption. All rights reserved. | Data provided by <a href="https://rescuegroups.org" target="_blank" rel="noopener">RescueGroups.org</a></p>
     </div>
   </footer>

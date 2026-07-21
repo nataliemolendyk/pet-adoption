@@ -4,10 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Learn about the pet adoption process. Step-by-step guide from choosing a pet to bringing them home." />
+  <meta property="og:title" content="Adoption Process — Pet Adoption" />
+  <meta property="og:description" content="Follow our step-by-step guide to bring a new furry friend into your life. From choosing a pet to bringing them home." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR_VERCEL_DOMAIN.vercel.app/adoption-process.html" />
+  <meta property="og:image" content="https://picsum.photos/seed/pet-adoption-og/1200/630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://api.rescuegroups.org" />
+  <link rel="preconnect" href="https://picsum.photos" />
   <title>Adoption Process — Pet Adoption</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- ===== Skip Link (for keyboard users) ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ===== Navigation Bar ===== -->
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
@@ -39,64 +50,79 @@
   </section>
 
   <!-- ===== Process Content ===== -->
-  <section class="page-content">
+  <section class="page-content" id="main-content">
     <div class="container">
+      <div class="section-title">
+        <h2>Step-by-Step Guide</h2>
+        <p>Based on guidelines from the ASPCA, Humane Society, and AVMA. Every shelter's process is slightly different, but this gives you a general roadmap.</p>
+      </div>
       <div class="steps-list">
         <div class="step-item">
           <div class="step-number">1</div>
           <div class="step-content">
             <h3>Browse Available Pets</h3>
-            <p>Start by browsing our gallery of adoptable pets. You can filter by species, breed, age, size, and more to find animals that match your lifestyle and preferences.</p>
+            <p>Start by browsing our gallery of adoptable pets. You can filter by species, breed, age, size, and more. The ASPCA recommends using search engines like <a href="https://www.adoptapet.com/" target="_blank" rel="noopener">Adopt a Pet</a> or <a href="https://www.petfinder.com/" target="_blank" rel="noopener">Petfinder</a> to discover shelters and adoptable pets near you.<sup><a href="#source-1">[1]</a></sup></p>
           </div>
         </div>
         <div class="step-item">
           <div class="step-number">2</div>
           <div class="step-content">
             <h3>Learn About the Pet</h3>
-            <p>Once you find a pet you're interested in, read their full profile to learn about their personality, medical history, and any special needs. Each pet's page includes details provided by the shelter.</p>
+            <p>Once you find a pet you're interested in, read their full profile. Shelters publish descriptions and photos to help you understand the animal's personality and unique needs. The Humane Society advises checking the individual shelter's website and visiting in person — sometimes all it takes to find your perfect match is to look directly into an animal's eyes.<sup><a href="#source-2">[2]</a></sup></p>
           </div>
         </div>
         <div class="step-item">
           <div class="step-number">3</div>
           <div class="step-content">
             <h3>Contact the Shelter</h3>
-            <p>Reach out to the shelter or rescue organization caring for the pet. They can answer your questions, provide additional information, and guide you through their specific adoption process.</p>
+            <p>Reach out to the shelter or rescue organization caring for the pet. Every animal welfare organization has its own unique adoption process, fees, and parameters. Some offer same-day adoptions, while others take longer. Visit the organization's website to learn about their specific process.<sup><a href="#source-1">[1]</a></sup></p>
           </div>
         </div>
         <div class="step-item">
           <div class="step-number">4</div>
           <div class="step-content">
             <h3>Meet the Pet</h3>
-            <p>Most shelters encourage or require a meet-and-greet before finalizing an adoption. This is your chance to see if you and the pet are a good match. Some shelters also allow you to introduce the pet to your current animals.</p>
+            <p>Most shelters encourage or require a meet-and-greet before finalizing an adoption. The Humane Society promotes an "Adopters Welcome" approach — a conversational adoption process that focuses on finding the right fit for your lifestyle and family. Some shelters also allow you to introduce the pet to your current animals.<sup><a href="#source-2">[2]</a></sup></p>
           </div>
         </div>
         <div class="step-item">
           <div class="step-number">5</div>
           <div class="step-content">
             <h3>Complete the Application</h3>
-            <p>Fill out the adoption application provided by the shelter. This typically includes questions about your living situation, pet experience, and lifestyle. Some shelters may also require a home visit.</p>
+            <p>Fill out the adoption application provided by the shelter. This typically includes questions about your living situation, pet experience, and lifestyle. Some shelters may also require a home visit. Many organizations offer free behavior support and may even help negotiate with landlords if needed.<sup><a href="#source-2">[2]</a></sup></p>
           </div>
         </div>
         <div class="step-item">
           <div class="step-number">6</div>
           <div class="step-content">
             <h3>Pay the Adoption Fee</h3>
-            <p>Adoption fees vary but usually cover spaying/neutering, vaccinations, microchipping, and an initial vet checkup. This fee helps the shelter continue their life-saving work.</p>
+            <p>Adoption fees vary by organization but help cover the costs of caring for animals — including veterinary care, spaying/neutering, vaccinations, and food. The ASPCA notes that shelters also occasionally host fee-waived events to make adoption more accessible, especially for large dogs, senior pets, or those with special medical needs.<sup><a href="#source-1">[1]</a></sup></p>
           </div>
         </div>
         <div class="step-item">
           <div class="step-number">7</div>
           <div class="step-content">
             <h3>Bring Your Pet Home</h3>
-            <p>Congratulations! Once approved, you can bring your new companion home. Make sure your home is prepared with food, bedding, toys, and a safe space for your pet to adjust.</p>
+            <p>Congratulations! Once approved, you can bring your new companion home. The ASPCA recommends the <strong>3-3-3 Guideline</strong>: The first 3 days are about decompression and nervousness; the next 3 weeks are about settling in and starting training; the first 3 months are about building trust and bonding. Make sure your home is prepared with food, bedding, and a safe space.<sup><a href="#source-1">[1]</a></sup></p>
           </div>
         </div>
+      </div>
+
+      <!-- Sources Section -->
+      <div class="section-title" style="margin-top: var(--space-3xl);">
+        <h2>Sources</h2>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto; font-size: 0.85rem; color: var(--medium-gray);">
+        <p id="source-1"><sup>[1]</sup> ASPCA. "Adopting a Pet." <a href="https://www.aspca.org/adopt-pet/adoption-tips" target="_blank" rel="noopener">https://www.aspca.org/adopt-pet/adoption-tips</a></p>
+        <p id="source-2"><sup>[2]</sup> Humane World for Animals (formerly Humane Society of the United States). "Adopting an Animal from a Shelter or Rescue Group." <a href="https://www.humaneworld.org/en/resources/adopting-animal-shelter-or-rescue-group" target="_blank" rel="noopener">https://www.humaneworld.org/en/resources/adopting-animal-shelter-or-rescue-group</a></p>
+        <p id="source-3"><sup>[3]</sup> American Veterinary Medical Association (AVMA). "Pet Care Resources." <a href="https://www.avma.org/resources-tools/pet-owners/petcare" target="_blank" rel="noopener">https://www.avma.org/resources-tools/pet-owners/petcare</a></p>
       </div>
     </div>
   </section>
 
   <!-- ===== Footer ===== -->
   <footer class="footer">
+    <div class="container">
       <p>&copy; 2024 Pet Adoption. All rights reserved. | Data provided by <a href="https://rescuegroups.org" target="_blank" rel="noopener">RescueGroups.org</a></p>
     </div>
   </footer>
