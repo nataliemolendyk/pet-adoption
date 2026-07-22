@@ -1,6 +1,8 @@
 // ==========================================
 // Browse Page Logic
 // ==========================================
+import { API } from '../services/api.js';
+import { UI } from '../utils/ui.js';
 
 export const Browse = {
   currentPage: 1,
@@ -83,9 +85,9 @@ export const Browse = {
     }
 
     this.petGrid.innerHTML = '';
-    animals.forEach(animal => {
-      this.petGrid.appendChild(UI.createPetCard(animal));
-    });
+        animals.forEach(animal => {
+          this.petGrid.appendChild(UI.createPetCard(animal, data.included || []));
+        });
 
     this.renderPagination();
   },
@@ -105,14 +107,33 @@ export const Browse = {
     });
     wrapper.appendChild(prev);
 
-    for (let i = 1; i <= this.totalPages; i++) {
-      const btn = document.createElement('button');
-      btn.textContent = i;
-      if (i === this.currentPage) btn.classList.add('active');
-      btn.addEventListener('click', () => {
-        if (i !== this.currentPage) { this.currentPage = i; this.loadPets(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-      });
-      wrapper.appendChild(btn);
+        // Compact page range: show first, last, and pages around current
+    const range = 2;
+    let start = Math.max(1, this.currentPage - range);
+    let end = Math.min(this.totalPages, this.currentPage + range);
+
+    if (start > 1) {
+      this._addPageBtn(wrapper, 1);
+      if (start > 2) {
+        const ellipsis = document.createElement('span');
+        ellipsis.className = 'page-ellipsis';
+        ellipsis.textContent = '...';
+        wrapper.appendChild(ellipsis);
+      }
+    }
+
+    for (let i = start; i <= end; i++) {
+      this._addPageBtn(wrapper, i);
+    }
+
+    if (end < this.totalPages) {
+      if (end < this.totalPages - 1) {
+        const ellipsis = document.createElement('span');
+        ellipsis.className = 'page-ellipsis';
+        ellipsis.textContent = '...';
+        wrapper.appendChild(ellipsis);
+      }
+      this._addPageBtn(wrapper, this.totalPages);
     }
 
     const info = document.createElement('span');
@@ -132,7 +153,17 @@ export const Browse = {
   },
 
   removePagination() {
-    const el = document.querySelector('.pagination');
-    if (el) el.remove();
-  },
-};
+      const el = document.querySelector('.pagination');
+      if (el) el.remove();
+    },
+
+    _addPageBtn(wrapper, pageNum) {
+      const btn = document.createElement('button');
+      btn.textContent = pageNum;
+      if (pageNum === this.currentPage) btn.classList.add('active');
+      btn.addEventListener('click', () => {
+        if (pageNum !== this.currentPage) { this.currentPage = pageNum; this.loadPets(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      });
+      wrapper.appendChild(btn);
+    },
+  };

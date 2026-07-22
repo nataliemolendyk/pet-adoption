@@ -30,6 +30,54 @@ export const UI = {
       </div>
     `;
   },
+    /**
+       * Create a detailed shelter contact card (address, phone, email, website)
+   * from API org data — used on the Get in Touch page.
+   * @param {object} org - Org data object from API
+   * @returns {HTMLElement}
+   */
+  createShelterContactCard(org) {
+    const attrs = org.attributes || {};
+    const name = attrs.name || 'Unknown Shelter';
+    const phone = attrs.phone || '';
+    const email = attrs.email || '';
+    const url = attrs.url || '';
+    const street = attrs.street || attrs.address || '';
+    const city = attrs.city || '';
+    const state = attrs.state || '';
+    const hours = attrs.hours || '';
+    const about = attrs.about || attrs.services || '';
+
+    const card = document.createElement('div');
+        card.className = 'card';
+        card.style.cssText = 'padding: var(--space-xl); display: flex; flex-direction: column; height: 100%;';
+
+        let html = `<h3>${name}</h3>`;
+        html += `<div style="margin: var(--space-md) 0; flex: 1;">`;
+
+    const row = (label, value) => `
+      <p style="display: flex; align-items: flex-start; gap: var(--space-sm); margin-bottom: var(--space-sm);">
+        <span style="color: var(--forest-green); font-weight: bold; min-width: 80px;">${label}:</span>
+        <span>${value}</span>
+      </p>`;
+
+    if (street || (city && state)) {
+      const addressLine = [street, [city, state].filter(Boolean).join(', ')].filter(Boolean).join(', ');
+      html += row('Address', addressLine);
+    }
+    if (phone) html += row('Phone', phone);
+    if (email) html += row('Email', `<a href="mailto:${email}">${email}</a>`);
+    if (url) html += row('Website', `<a href="${url}" target="_blank" rel="noopener">${url}</a>`);
+    if (hours) html += row('Hours', hours);
+
+    html += `</div>`;
+        if (about) {
+                  html += `<p style="color: var(--medium-gray); margin-top: auto; padding-top: var(--space-md);">${about}</p>`;
+                }
+
+        card.innerHTML = html;
+        return card;
+  },
 
   /**
    * Show an error message
@@ -57,15 +105,16 @@ export const UI = {
     `;
   },
 
-  /**
+    /**
    * Create a pet card element from API animal data
    * @param {object} animal - Animal data object from API
+   * @param {Array} [included] - Optional included data (pictures, etc.) from API response
    * @returns {HTMLElement} - Pet card anchor element
    */
-  createPetCard(animal) {
+  createPetCard(animal, included = []) {
     const id = animal.id;
     const attributes = animal.attributes || {};
-    const pictures = animal.relationships?.pictures?.data || [];
+    const pictureIds = animal.relationships?.pictures?.data || [];
     const name = attributes.name || 'Unknown Pet';
     const breed = attributes.breedPrimary || 'Mixed Breed';
     const ageGroup = attributes.ageGroup || '';
@@ -84,16 +133,29 @@ export const UI = {
     card.style.textDecoration = 'none';
     card.style.color = 'inherit';
 
-    // Primary image or placeholder
-    if (pictures.length > 0) {
+    // Primary image - try getting URL from included pictures or attributes
+    let imgUrl = '';
+    if (pictureIds.length > 0) {
+      const pictureData = included.find(item => item.type === 'pictures' && item.id === pictureIds[0].id);
+      if (pictureData?.attributes) {
+        const picAttrs = pictureData.attributes;
+        imgUrl = picAttrs.large?.url || picAttrs.small?.url || picAttrs.publicUrl || picAttrs.url || picAttrs.original?.url;
+      }
+    }
+    // Fallback to thumbnail URL from attributes
+    if (!imgUrl && attributes.pictureThumbnailUrl) {
+      imgUrl = attributes.pictureThumbnailUrl;
+    }
+
+    if (imgUrl) {
       const img = document.createElement('img');
       img.className = 'pet-card-img';
-      img.src = pictures[0].url || pictures[0].publicUrl || '';
+      img.src = imgUrl;
       img.alt = name;
       img.loading = 'lazy';
       img.decoding = 'async';
-      img.width = 400;
-      img.height = 240;
+      img.width = 600;
+            img.height = 280;
       img.onerror = function() {
         this.style.display = 'none';
         this.nextElementSibling.style.display = 'flex';
@@ -105,7 +167,7 @@ export const UI = {
     const placeholder = document.createElement('div');
     placeholder.className = 'pet-card-img-placeholder';
     placeholder.textContent = '🐾';
-    if (pictures.length > 0) placeholder.style.display = 'none';
+    if (pictureIds.length > 0) placeholder.style.display = 'none';
     card.appendChild(placeholder);
 
     // Card body

@@ -55,7 +55,6 @@ export const PetDetail = {
     const sizeGroup = attributes.sizeGroup || '';
     const sizeString = attributes.sizeString || '';
     const descriptionHtml = attributes.descriptionHtml || attributes.descriptionText || 'No description available.';
-    const status = attributes.status || 'available';
     const color = attributes.colorPrimary || '';
     const colorSecondary = attributes.colorSecondary || '';
     const specialNeeds = attributes.isSpecialNeeds || false;
@@ -64,13 +63,27 @@ export const PetDetail = {
     const housed = attributes.housedWith || '';
     const adoptionFee = attributes.adoptionFee || '';
 
+    // Species from included data
+    const speciesIds = animalData.relationships?.species?.data || [];
+    const speciesData = speciesIds.length > 0 ? included.find(item => item.type === 'species' && item.id === speciesIds[0]) : null;
+    const speciesName = speciesData?.attributes?.singular || attributes.species || 'Pet';
+
+    // Status from included data
+    const statusIds = animalData.relationships?.statuses?.data || [];
+    const statusData = statusIds.length > 0 ? included.find(item => item.type === 'statuses' && item.id === statusIds[0]) : null;
+    const status = statusData?.attributes?.name || attributes.status || 'available';
+
     // Pictures
     const pictureIds = animalData.relationships?.pictures?.data || [];
     const pictures = included.filter(item => item.type === 'pictures' && pictureIds.some(p => p.id === item.id));
-    const allPictureUrls = pictures.map(p => p.attributes?.publicUrl || p.attributes?.url).filter(Boolean);
+    const allPictureUrls = pictures.map(p => {
+      const picAttrs = p.attributes || {};
+      return picAttrs.large?.url || picAttrs.small?.url || picAttrs.publicUrl || picAttrs.url || picAttrs.original?.url;
+    }).filter(Boolean);
 
-    // Organization (shelter)
-    const orgId = animalData.relationships?.org?.data?.id;
+    // Organization (shelter) - API uses plural 'orgs'
+    const orgIds = animalData.relationships?.orgs?.data || [];
+    const orgId = Array.isArray(orgIds) ? orgIds[0]?.id : orgIds?.id;
     const orgData = orgId ? included.find(item => item.type === 'orgs' && item.id === orgId) : null;
     const orgAttrs = orgData?.attributes || {};
     const orgName = orgAttrs.name || 'Unknown Shelter';
@@ -79,7 +92,7 @@ export const PetDetail = {
     const orgUrl = orgAttrs.url || '';
     const orgCity = orgAttrs.city || '';
     const orgState = orgAttrs.state || '';
-    const orgAddress = orgAttrs.address || '';
+    const orgAddress = orgAttrs.street || orgAttrs.address || '';
 
     // Age display
     const ageDisplay = ageString || (ageGroup ? ageGroup.charAt(0).toUpperCase() + ageGroup.slice(1) : 'Unknown');
@@ -169,7 +182,7 @@ export const PetDetail = {
     // Action buttons
     html += `<div class="pet-detail-actions">`;
     html += `<a href="contact.html" class="btn btn-primary btn-lg">Contact Shelter</a>`;
-    html += `<a href="browse.html" class="btn btn-outline btn-lg">← Back to Browse</a>`;
+    html += `<a href="browse.html" class="btn btn-outline btn-lg">Back to Browse</a>`;
     html += `</div>`;
 
     html += `</div>`; // end pet-detail-body

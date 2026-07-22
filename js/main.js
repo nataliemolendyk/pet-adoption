@@ -5,6 +5,7 @@ import { API } from './services/api.js';
 import { UI } from './utils/ui.js';
 import { Browse } from './pages/browse.js';
 import { PetDetail } from './pages/pet-detail.js';
+import { Contact } from './pages/contact.js';
 
 // ==========================================
 // 4. Shared Initialization (Nav, Accordion, etc.)
@@ -79,6 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
     PetDetail.init();
   } else if (path === 'index.html' || path === '') {
     HomePage.init();
+  } else if (path === 'contact.html') {
+    Contact.init();
   }
 });
 
@@ -110,11 +113,12 @@ const HomePage = {
    */
   renderFeatured(container, data) {
     const animals = (data.data || []).slice(0, 3);
+    const included = data.included || [];
     if (animals.length === 0) return;
 
     container.innerHTML = '';
     animals.forEach(animal => {
-      const card = UI.createPetCard(animal);
+      const card = UI.createPetCard(animal, included);
       container.appendChild(card);
     });
   },

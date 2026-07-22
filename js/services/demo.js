@@ -37,6 +37,12 @@ export const DEMO = {
     { id: 'org-3', name: 'Forever Friends Rescue', phone: '(555) 555-1212', email: 'hello@foreverfriends.org', url: 'https://foreverfriends.org', city: 'Denver', state: 'CO', address: '789 Pine Road' },
   ],
 
+  // Get org list response for the shelters page (matches API.getOrgs format)
+  getOrgs(limit = 6) {
+    const data = this.orgs.slice(0, limit).map(org => this.buildOrg(org.id));
+    return { data, included: [] };
+  },
+
   // Get a consistent image URL for a pet
   getImageUrl(petId, name, index = 0) {
     const seed = `${name.toLowerCase().replace(/\s+/g, '-')}-${petId}-${index}`;
