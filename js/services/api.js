@@ -13,7 +13,7 @@ function getProxyBase() {
   // If on GitHub Pages, use the Vercel deployment URL
   if (host.includes('github.io') || host.includes('nataliemolendyk.github.io')) {
     // Your Vercel project URL
-        return 'https://pet-adoption-eosx50sks-oim-3690.vercel.app';
+        return 'https://pet-adoption-one-pi.vercel.app';
   }
   // Local dev or Vercel — use relative path
   return '';
