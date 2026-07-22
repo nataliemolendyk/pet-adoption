@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Set Active Nav Link ---
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPage = (window.location.pathname.split('/').pop() || 'index.html').replace('.html', '');
   document.querySelectorAll('.navbar-links a').forEach(link => {
-    const href = link.getAttribute('href');
+    const href = (link.getAttribute('href') || '').replace('.html', '');
     if (href === currentPage) {
       link.classList.add('active');
     }
@@ -72,15 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Page-Specific Initialization ---
-  const path = window.location.pathname.split('/').pop() || 'index.html';
+  const path = (window.location.pathname.split('/').pop() || 'index.html').replace('.html', '');
 
-  if (path === 'browse.html') {
+  if (path === 'browse') {
     Browse.init();
-  } else if (path === 'pet-detail.html') {
+  } else if (path === 'pet-detail') {
     PetDetail.init();
-  } else if (path === 'index.html' || path === '') {
+  } else if (path === 'index' || path === '') {
     HomePage.init();
-  } else if (path === 'contact.html') {
+  } else if (path === 'contact') {
     Contact.init();
   }
 });
