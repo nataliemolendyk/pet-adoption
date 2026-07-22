@@ -111,10 +111,11 @@ export const API = {
                     if (filters.state) {
                       const stateUpper = filters.state.toUpperCase();
                       results = results.filter(a => {
-                        const orgId = a.relationships?.org?.data?.id;
-                        if (!orgId) return false;
-                        const org = included.find(item => item.type === 'orgs' && item.id === orgId);
-                        return org?.attributes?.state?.toUpperCase() === stateUpper;
+                      const orgIds = a.relationships?.orgs?.data || [];
+                      const orgId = Array.isArray(orgIds) ? orgIds[0]?.id : orgIds?.id;
+                      if (!orgId) return false;
+                      const org = included.find(item => item.type === 'orgs' && item.id === orgId);
+                      return org?.attributes?.state?.toUpperCase() === stateUpper;
                       });
                     }
                     if (filters.search) {
