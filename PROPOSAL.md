@@ -1,6 +1,6 @@
-## What it does
+## What I'm building
 
-This pet adoption website displays images, background information (breed, age, gender, size), locations of centers, and information about the shelters. The website will include filters so users can filters by different breed names, gender, size, age, and health. It also has a adoption process section, FAQ, and tips section to answer common questions about the adoption process. Lastly, there will be a contact page so users can contact shelters to connect if interested.
+This pet adoption website displays images, background information (breed, age, gender, size), locations of centers, and information about the shelters, as well as adoption process information, common questions and answers, and tips for carrying for the pets. 
 
 ## Who it is for
 
@@ -13,9 +13,8 @@ This pet (maybe just dog) adoption website is for families, couples, or individu
 - Provides locations of the shelters and information about the shelters
 - Search and filter bar to find information easier
 
-## What it deliberately does not do
+## What I don't know yet
 
-- This website will not process adoptions (it is used as an informational guide).
-- Won't handle payments or donations.
-- Won't create profiles or store sensitive information.
-- This will not have a live chat feature between shelters.
+- I am not completely sure about the formatting of the pet cards or if I want the page to be organized like that.
+- I need to look into the API and how to connect the information as well as the shelters.
+- I also need to look into finding sources that provide accurate and reliable information.
