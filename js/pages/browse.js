@@ -11,13 +11,14 @@ export const Browse = {
   activeFilters: {},
 
   init() {
-    this.petGrid = document.querySelector('.pet-grid');
-    this.speciesFilter = document.querySelector('#filter-species');
-    this.ageFilter = document.querySelector('#filter-age');
-    this.genderFilter = document.querySelector('#filter-gender');
-    this.sizeFilter = document.querySelector('#filter-size');
-    this.applyBtn = document.querySelector('#filter-apply');
-    this.resetBtn = document.querySelector('#filter-reset');
+      this.petGrid = document.querySelector('.pet-grid');
+      this.speciesFilter = document.querySelector('#filter-species');
+      this.ageFilter = document.querySelector('#filter-age');
+      this.genderFilter = document.querySelector('#filter-gender');
+      this.sizeFilter = document.querySelector('#filter-size');
+      this.stateFilter = document.querySelector('#filter-state');
+      this.applyBtn = document.querySelector('#filter-apply');
+      this.resetBtn = document.querySelector('#filter-reset');
 
     if (!this.petGrid) return;
 
@@ -33,36 +34,38 @@ export const Browse = {
   },
 
   applyFilters() {
-    this.currentPage = 1;
-    this.activeFilters = {
-      species: this.speciesFilter?.value || '',
-      age: this.ageFilter?.value || '',
-      gender: this.genderFilter?.value || '',
-      size: this.sizeFilter?.value || '',
-    };
-    this.loadPets();
-  },
+      this.currentPage = 1;
+      this.activeFilters = {
+        species: this.speciesFilter?.value || '',
+        age: this.ageFilter?.value || '',
+        gender: this.genderFilter?.value || '',
+        size: this.sizeFilter?.value || '',
+        state: this.stateFilter?.value || '',
+      };
+      this.loadPets();
+    },
 
-  resetFilters() {
-    this.currentPage = 1;
-    this.activeFilters = {};
-    [this.speciesFilter, this.ageFilter, this.genderFilter, this.sizeFilter].forEach(select => {
-      if (select) select.selectedIndex = 0;
-    });
-    this.loadPets();
-  },
+    resetFilters() {
+      this.currentPage = 1;
+      this.activeFilters = {};
+      [this.speciesFilter, this.ageFilter, this.genderFilter, this.sizeFilter, this.stateFilter].forEach(select => {
+        if (select) select.selectedIndex = 0;
+      });
+      this.loadPets();
+    },
 
   async loadPets() {
     if (!this.petGrid) return;
     UI.showLoading(this.petGrid);
 
     try {
-      const filters = {};
-      const v = this.activeFilters;
-      if (v.species) filters.species = v.species;
-      if (v.age) filters.age = v.age;
-      if (v.gender) filters.gender = v.gender;
-      if (v.size) filters.size = v.size;
+          const filters = {};
+          const v = this.activeFilters;
+          if (v.species) filters.species = v.species;
+          if (v.age) filters.age = v.age;
+          if (v.gender) filters.gender = v.gender;
+          if (v.size) filters.size = v.size;
+          if (v.state) filters.state = v.state;
 
       const data = await API.getAnimals(filters, this.currentPage);
       this.renderData(data);

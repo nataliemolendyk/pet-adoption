@@ -73,7 +73,7 @@ export const API = {
             horse: 'horses',
           };
 
-          const hasClientFilters = filters.age || filters.gender || filters.size || filters.search;
+          const hasClientFilters = filters.age || filters.gender || filters.size || filters.search || filters.state;
           const hasSpeciesFilter = filters.species && speciesViews[filters.species];
 
           const limit = hasClientFilters ? 250 : CONFIG.ITEMS_PER_PAGE;
@@ -100,15 +100,24 @@ export const API = {
 
           // Apply client-side filtering for non-species filters
           if (filters.age) {
-            results = results.filter(a => a.attributes?.ageGroup?.toLowerCase() === filters.age.toLowerCase());
-          }
-          if (filters.gender) {
-            results = results.filter(a => a.attributes?.sex?.toLowerCase() === filters.gender.toLowerCase());
-          }
-          if (filters.size) {
-            results = results.filter(a => a.attributes?.sizeGroup?.toLowerCase() === filters.size.toLowerCase());
-          }
-          if (filters.search) {
+                      results = results.filter(a => a.attributes?.ageGroup?.toLowerCase() === filters.age.toLowerCase());
+                    }
+                    if (filters.gender) {
+                      results = results.filter(a => a.attributes?.sex?.toLowerCase() === filters.gender.toLowerCase());
+                    }
+                    if (filters.size) {
+                      results = results.filter(a => a.attributes?.sizeGroup?.toLowerCase() === filters.size.toLowerCase());
+                    }
+                    if (filters.state) {
+                      const stateUpper = filters.state.toUpperCase();
+                      results = results.filter(a => {
+                        const orgId = a.relationships?.org?.data?.id;
+                        if (!orgId) return false;
+                        const org = included.find(item => item.type === 'orgs' && item.id === orgId);
+                        return org?.attributes?.state?.toUpperCase() === stateUpper;
+                      });
+                    }
+                    if (filters.search) {
             const q = filters.search.toLowerCase();
             results = results.filter(a => {
               const attrs = a.attributes || {};
