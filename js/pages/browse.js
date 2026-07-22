@@ -4,6 +4,23 @@
 import { API } from '../services/api.js';
 import { UI } from '../utils/ui.js';
 
+// US state abbreviation to full name mapping
+const STATE_NAMES = {
+  'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas',
+  'CA': 'California', 'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware',
+  'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho',
+  'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas',
+  'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland',
+  'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi',
+  'MO': 'Missouri', 'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada',
+  'NH': 'New Hampshire', 'NJ': 'New Jersey', 'NM': 'New Mexico', 'NY': 'New York',
+  'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio', 'OK': 'Oklahoma',
+  'OR': 'Oregon', 'PA': 'Pennsylvania', 'RI': 'Rhode Island', 'SC': 'South Carolina',
+  'SD': 'South Dakota', 'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah',
+  'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington', 'WV': 'West Virginia',
+  'WI': 'Wisconsin', 'WY': 'Wyoming',
+};
+
 export const Browse = {
   currentPage: 1,
   totalResults: 0,
@@ -22,9 +39,12 @@ export const Browse = {
 
     if (!this.petGrid) return;
 
-    this.loadPets();
+        // Populate the state dropdown from shelter/org data
+        this.populateStateDropdown();
 
-    if (this.applyBtn) {
+        this.loadPets();
+
+        if (this.applyBtn) {
       this.applyBtn.addEventListener('click', () => this.applyFilters());
     }
 
@@ -52,9 +72,81 @@ export const Browse = {
         if (select) select.selectedIndex = 0;
       });
       this.loadPets();
-    },
+          },
 
-  async loadPets() {
+        /**
+         * Populate the state filter dropdown with states from shelter/org data.
+         * Falls back to extracting states from the demo data if the API is unavailable.
+         */
+        async populateStateDropdown() {
+          if (!this.stateFilter) return;
+
+          try {
+            // Try to get orgs from the API (includes demo data fallback)
+            const orgsData = await API.getOrgs(50);
+            const states = new Set();
+
+            (orgsData.data || []).forEach(org => {
+              const state = org.attributes?.state;
+              if (state) states.add(state.toUpperCase());
+            });
+
+            if (states.size > 0) {
+              this.updateStateOptions([...states]);
+              return;
+            }
+          } catch (e) {
+            console.warn('Could not load orgs for state dropdown:', e);
+          }
+
+          // Fallback: extract states from demo pets data
+          try {
+            const { DEMO } = await import('../services/demo.js');
+            const states = new Set();
+            DEMO.pets.forEach(pet => {
+              if (pet.state) states.add(pet.state.toUpperCase());
+            });
+            if (states.size > 0) {
+              this.updateStateOptions([...states]);
+            }
+          } catch (e) {
+            console.warn('Could not extract states from demo data:', e);
+          }
+        },
+
+        /**
+         * Update the state dropdown options with the given state codes.
+         * @param {string[]} stateCodes - Array of state abbreviation codes
+         */
+        updateStateOptions(stateCodes) {
+          const select = this.stateFilter;
+          // Preserve the currently selected value if any
+          const currentValue = select.value;
+
+          // Keep only the "All States" option
+          select.innerHTML = '<option value="">All States</option>';
+
+          // Sort alphabetically by full state name
+          stateCodes.sort((a, b) => {
+            const nameA = STATE_NAMES[a] || a;
+            const nameB = STATE_NAMES[b] || b;
+            return nameA.localeCompare(nameB);
+          });
+
+          stateCodes.forEach(code => {
+            const option = document.createElement('option');
+            option.value = code;
+            option.textContent = STATE_NAMES[code] || code;
+            select.appendChild(option);
+          });
+
+          // Restore previously selected value if it still exists
+          if (currentValue) {
+            select.value = currentValue;
+          }
+        },
+
+        async loadPets() {
     if (!this.petGrid) return;
     UI.showLoading(this.petGrid);
 
