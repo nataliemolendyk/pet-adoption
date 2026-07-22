@@ -16,6 +16,4 @@ Thumbs.db
 # Dependencies (if using npm/yarn)
 node_modules/
 
-# Environment config (API keys)
-config.js
 
