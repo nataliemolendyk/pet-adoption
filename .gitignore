@@ -15,3 +15,5 @@ Thumbs.db
 
 # Dependencies (if using npm/yarn)
 node_modules/
+
+git check-ignore js/config.js
