@@ -34,7 +34,7 @@
 
 ## Final Project Changes
 
--Feature I should cut: the contact page and make it into a get in touch page that provides the information of the shelters instead of a form with no backend.
+- Feature I should cut: the contact page and make it into a get in touch page that provides the information of the shelters instead of a form with no backend.
 - Feature I should add: handling empty and error cases to improve user experience when API has connection issues.
 - Change I made: I am making the contact form page into an informational page about how to contact shelters (could be their phone numbers or links to websites).
 
